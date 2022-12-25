@@ -1,10 +1,8 @@
-package by.ivankov.base;
-
-import java.util.SplittableRandom;
+package by.ivankov.entity;
 
 public enum Equipment {
-    EXPANDED("Extended equipment", 25000),
-    STANDARD("Standard equipment", 20000);
+    EXPANDED("Car Extended", 25000),
+    STANDARD("Car Standard", 20000);
     private String title;
     private int price;
 

@@ -1,4 +1,4 @@
-package by.ivankov.base;
+package by.ivankov.entity;
 
 public enum Detail {
     MOTOR_V8("Motor V8",5000),
