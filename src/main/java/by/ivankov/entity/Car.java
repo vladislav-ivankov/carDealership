@@ -5,7 +5,6 @@ import java.util.List;
 public class Car {
     private String equipmentName;
     private Equipment typeEquipment;
-    private int numberOfCars;
     private List<Detail> detailsList;
    static final int MIN_SIZE_NAME = 4;
     static final int MAX_SIZE_NAME = 20;
