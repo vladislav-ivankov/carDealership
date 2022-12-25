@@ -12,9 +12,9 @@ public class CarPriceServiceImpl implements CarPriceServices {
     public int orderTotalPrice(Car car, Equipment typeEquipment) {
         int totalPrice = 0;
         for(Detail detail : car.getDetailsList()){
-            totalPrice += detail.getPrice() + typeEquipment.getPrice();
+            totalPrice += detail.getPrice();
         }
-        return totalPrice;
+        return totalPrice + typeEquipment.getPrice();
     }
 
     @Override

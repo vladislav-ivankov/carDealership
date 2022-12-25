@@ -23,7 +23,8 @@ public class CarPriceServiceImplTest {
         car.addDetail(Detail.RACING_SUSPENSION);
         car.addDetail(Detail.MOTOR_V12);
         Order order = new Order(888, car, 1);
-        int actual = car.orderTotalPrice();
+        CarPriceServices services = new CarPriceServiceImpl();
+        int actual = services.orderTotalPrice(car, car.getTypeEquipment());
         int expected = 35100;
         assertEquals(actual, expected);
     }
@@ -36,7 +37,8 @@ public class CarPriceServiceImplTest {
         car.addDetail(Detail.STANDARD_BRAKES);
         car.addDetail(Detail.SUSPENSION);
         Order order = new Order(523, car, 3);
-        int actual = order.orderTotalAmount();
+        CarPriceServices services = new CarPriceServiceImpl();
+        int actual = services.orderTotalAmount(car, order);
         int expected = 76800;
         assertEquals(actual, expected);
     }
