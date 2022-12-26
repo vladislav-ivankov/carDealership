@@ -19,7 +19,7 @@ public class Main {
         order.toStringCheque();
 
         List<Detail> details1 = new ArrayList<>();
-        Car car1 = new Car("Standard Assembly ", Equipment.STANDARD, details1);
+        Car car1 = new Car("Standard Assembly", Equipment.STANDARD, details1);
         car1.addDetail(Detail.MOTOR_V8);
         car1.addDetail(Detail.STANDARD_BRAKES);
         car1.addDetail(Detail.SUSPENSION);

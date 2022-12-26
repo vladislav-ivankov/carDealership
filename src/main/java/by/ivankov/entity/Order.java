@@ -1,14 +1,17 @@
 package by.ivankov.entity;
 
+import by.ivankov.Main;
+
 import java.time.LocalTime;
+import java.util.SortedMap;
 
 public class Order {
     private LocalTime localTime = LocalTime.now();
+    private Car car;
     private int clientNumber;
     private int qualityOrder;
     static final int MIN_ORDER_EQUIPMENT = 1;
     static final int MAX_ORDER_EQUIPMENT = 5;
-    private Car car;
     static final int MIN_RANGE = 10000;
     static final int MAX_RANGE = 99999;
 
@@ -43,9 +46,13 @@ public class Order {
 
     public void toStringCheque() {
         System.out.println("\n" +"*".repeat(30));
-        System.out.println("Order: " + orderNumber());
+        System.out.println("Order: " +orderNumber());
         System.out.println("Client: " + clientNumber);
-        System.out.println("Title: " + car.getEquipmentName());
+        if (car.MIN_SIZE_NAME <= car.getEquipmentName().length() && car.getEquipmentName().length() <= car.MAX_SIZE_NAME) {
+            System.out.println("Title: " + car.getEquipmentName());
+        }else {
+            System.out.println("Title: Client[" +orderNumber() +"]");
+        }
         System.out.println("-".repeat(30));
         System.out.printf("%-14s %14s %n", car.getTypeEquipment().getTitle(), car.getTypeEquipment().getPrice() +" $");
         for(Detail detail : car.getDetailsList()){

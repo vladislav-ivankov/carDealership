@@ -3,7 +3,6 @@ package by.ivankov.entity;
 
 import java.util.List;
 public class Car {
-    private Order order;
     private String equipmentName;
     private Equipment typeEquipment;
     private List<Detail> detailsList;
@@ -12,7 +11,7 @@ public class Car {
     static final int MAX_COMPONENTS = 8;
 
     public Car(String equipmentName, Equipment typeEquipment,List<Detail> detailList) {
-        setEquipmentName(equipmentName);
+        this.equipmentName = equipmentName;
         this.typeEquipment = typeEquipment;
         this.detailsList = detailList;
 
@@ -36,6 +35,7 @@ public class Car {
             detailsList.add(detail);
         }
     }
+
     public int orderTotalPrice(){
         int totalPrice = 0;
         for(Detail detail : detailsList){
@@ -43,14 +43,8 @@ public class Car {
         }
         return totalPrice + typeEquipment.getPrice();
     }
+
     public String getEquipmentName(){
         return equipmentName;
-    }
-    public void setEquipmentName(String equipmentName) {
-        if (MIN_SIZE_NAME <= equipmentName.length() && equipmentName.length() <= MAX_SIZE_NAME){
-            this.equipmentName = equipmentName;
-        }else{
-            this.equipmentName = "n"; // FIXME: 25.12.2022
-        }
     }
 }
