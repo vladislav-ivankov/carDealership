@@ -10,8 +10,6 @@ public class Order {
     private Car car;
     private int clientNumber;
     private int qualityOrder;
-    static final int MIN_ORDER_EQUIPMENT = 1;
-    static final int MAX_ORDER_EQUIPMENT = 5;
     static final int MIN_RANGE = 10000;
     static final int MAX_RANGE = 99999;
 
@@ -22,11 +20,10 @@ public class Order {
     }
 
     public int getQualityOrder() {
-        if (qualityOrder >= MIN_ORDER_EQUIPMENT && qualityOrder <= MAX_ORDER_EQUIPMENT) {
-            this.qualityOrder = qualityOrder;
-        } else if (qualityOrder < MIN_ORDER_EQUIPMENT) {
+        if (qualityOrder >= 1 && qualityOrder <= 5) {
+        } else if (qualityOrder < 1) {
             qualityOrder = 1;
-        } else if (qualityOrder > MAX_ORDER_EQUIPMENT) {
+        } else if (qualityOrder > 5) {
             qualityOrder = 5;
         }
         return qualityOrder;
