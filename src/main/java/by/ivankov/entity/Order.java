@@ -10,8 +10,6 @@ public class Order {
     private Car car;
     private int clientNumber;
     private int qualityOrder;
-    static final int MIN_RANGE = 10000;
-    static final int MAX_RANGE = 99999;
 
     public Order(int clientNumber, Car car, int qualityOrder) {
         this.qualityOrder = qualityOrder;
@@ -30,7 +28,7 @@ public class Order {
     }
 
     public int orderNumber() {
-        return (int) ((Math.random() * (MAX_RANGE - MIN_RANGE)) + MIN_RANGE);
+        return (int) ((Math.random() * (99999 - 10000)) + 10000);
     }
 
     public int orderTotalAmount(){
