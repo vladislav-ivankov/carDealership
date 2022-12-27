@@ -8,7 +8,6 @@ public class Car {
     private List<Detail> detailsList;
    static final int MIN_SIZE_NAME = 4;
     static final int MAX_SIZE_NAME = 20;
-    static final int MAX_COMPONENTS = 8;
 
     public Car(String equipmentName, Equipment typeEquipment,List<Detail> detailList) {
         this.equipmentName = equipmentName;
@@ -26,7 +25,7 @@ public class Car {
     }
 
     public void addDetail(Detail detail){
-        if (detailsList.size() > MAX_COMPONENTS) {
+        if (detailsList.size() > 8) {
             System.out.println("This car is already assembled.");
         }
         if(detailsList.contains(detail)) {
