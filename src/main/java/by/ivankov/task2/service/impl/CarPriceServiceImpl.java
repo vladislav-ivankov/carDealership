@@ -9,7 +9,7 @@ public class CarPriceServiceImpl implements CarPriceServices {
     @Override
     public int orderTotalPrice(Order order) {
         int totalPrice = 0;
-        for(Detail detail : order.details()){
+        for (Detail detail : order.details()) {
             totalPrice += detail.getPrice();
         }
         return totalPrice + order.typeEquipment().getPrice();

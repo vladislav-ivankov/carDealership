@@ -11,7 +11,7 @@ public enum Equipment {
         this.price = price;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 

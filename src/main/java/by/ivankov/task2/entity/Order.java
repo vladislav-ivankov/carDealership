@@ -17,11 +17,12 @@ public class Order {
         this.clientNumber = clientNumber;
         this.car = car;
     }
-    public List<Detail> details(){
+
+    public List<Detail> details() {
         return car.getDetailsList();
     }
 
-    public Equipment typeEquipment(){
+    public Equipment typeEquipment() {
         return car.getTypeEquipment();
     }
 
@@ -43,10 +44,10 @@ public class Order {
         return (orderNumber < 99999 ? orderNumber : 10000);
     }
 
-    public String Title(){
+    public String Title() {
         if (MIN_SIZE_NAME <= car.getName().length() && car.getName().length() <= MAX_SIZE_NAME) {
             return ("Title: " + car.getName());
-        }else
+        } else
             return ("Title: Client[" + getOrderNumber() + "]");
     }
 }

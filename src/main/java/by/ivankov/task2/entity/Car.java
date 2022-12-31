@@ -24,7 +24,8 @@ public class Car {
     public Equipment getTypeEquipment() {
         return typeEquipment;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 

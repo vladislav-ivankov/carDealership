@@ -22,7 +22,7 @@ public class OrderChequeServiceImpl implements OrderChequeService {
                 + "Client: " + clientNumber + "\n"
                 + order.Title() + "\n"
                 + "-".repeat(30) + "\n");
-        sb.append(String.format("%-14s %14s %n", order.typeEquipment().getTitle(), order.typeEquipment().getPrice() +" $"));
+        sb.append(String.format("%-14s %14s %n", order.typeEquipment().getTitle(), order.typeEquipment().getPrice() + " $"));
         for (Detail detail : order.details()) {
             sb.append(String.format("%-20s %8s %n", detail.getTitle(), detail.getPrice() + " $"));
         }
