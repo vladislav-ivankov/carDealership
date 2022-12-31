@@ -1,4 +1,4 @@
-package by.ivankov.entity;
+package by.ivankov.task2.entity;
 
 public enum Equipment {
     EXPANDED("Car Extended", 25000),

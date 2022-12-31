@@ -1,11 +1,11 @@
-package by.ivankov;
+package by.ivankov.task2;
 
-import by.ivankov.entity.Car;
-import by.ivankov.entity.Detail;
-import by.ivankov.entity.Equipment;
-import by.ivankov.entity.Order;
-import by.ivankov.service.CarPriceServices;
-import by.ivankov.service.Impl.CarPriceServiceImpl;
+import by.ivankov.task2.entity.Car;
+import by.ivankov.task2.entity.Detail;
+import by.ivankov.task2.entity.Equipment;
+import by.ivankov.task2.entity.Order;
+import by.ivankov.task2.service.CarPriceServices;
+import by.ivankov.task2.service.impl.CarPriceServiceImpl;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ public class CarPriceServiceImplTest {
         car.addDetail(Detail.SPORT_BRAKES);
         car.addDetail(Detail.RACING_SUSPENSION);
         car.addDetail(Detail.MOTOR_V12);
-        Order order = new Order(888, car, 1);
+        Order order = new Order(888, 1, car);
         CarPriceServices services = new CarPriceServiceImpl();
-        int actual = services.orderTotalPrice(car, car.getTypeEquipment());
+        int actual = services.orderTotalPrice(order);
         int expected = 35100;
         assertEquals(actual, expected);
     }
@@ -36,9 +36,9 @@ public class CarPriceServiceImplTest {
         car.addDetail(Detail.MOTOR_V8);
         car.addDetail(Detail.STANDARD_BRAKES);
         car.addDetail(Detail.SUSPENSION);
-        Order order = new Order(523, car, 3);
+        Order order = new Order(523, 3, car);
         CarPriceServices services = new CarPriceServiceImpl();
-        int actual = services.orderTotalAmount(car, order);
+        int actual = services.orderTotalAmount(order);
         int expected = 76800;
         assertEquals(actual, expected);
     }

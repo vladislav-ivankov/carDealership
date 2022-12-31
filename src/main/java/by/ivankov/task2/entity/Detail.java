@@ -1,4 +1,4 @@
-package by.ivankov.entity;
+package by.ivankov.task2.entity;
 
 public enum Detail {
     MOTOR_V8("Motor V8",5000),
