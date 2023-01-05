@@ -4,30 +4,26 @@ import by.ivankov.task2.entity.Car;
 import by.ivankov.task2.entity.Detail;
 import by.ivankov.task2.entity.Equipment;
 import by.ivankov.task2.entity.Order;
-import by.ivankov.task2.service.impl.OrderChequeServiceImpl;
+import by.ivankov.task2.service.impl.ChequeGeneratorServiceImpl;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        OrderChequeServiceImpl service = new OrderChequeServiceImpl();
+        ChequeGeneratorServiceImpl service = new ChequeGeneratorServiceImpl();
 
-        List<Detail> details = new ArrayList<>();
-        Car car = new Car("Extended Assembly", Equipment.EXPANDED, details);
+        Car car = new Car("Extended Assemblyyyyyy", Equipment.EXPANDED);
         car.addDetail(Detail.SPORT_BRAKES);
         car.addDetail(Detail.RACING_SUSPENSION);
         car.addDetail(Detail.MOTOR_V12);
-        Order order = new Order(888, 1, car);
-        service.Cheque(order);
+        Order order = new Order(888, 1);
+        service.cheque(order, car);
 
 
-        List<Detail> details1 = new ArrayList<>();
-        Car car1 = new Car("Standard Assembly", Equipment.STANDARD, details1);
+        Car car1 = new Car("Standard Assembly", Equipment.STANDARD);
         car1.addDetail(Detail.MOTOR_V8);
         car1.addDetail(Detail.STANDARD_BRAKES);
         car1.addDetail(Detail.SUSPENSION);
-        Order order1 = new Order(523, 3, car1);
-        service.Cheque(order1);
+        Order order1 = new Order(523, 3);
+        service.cheque(order1, car1);
     }
 }
