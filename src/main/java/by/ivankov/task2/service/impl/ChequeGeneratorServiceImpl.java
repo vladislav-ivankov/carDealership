@@ -10,16 +10,15 @@ import java.time.LocalTime;
 
 public class ChequeGeneratorServiceImpl implements ChequeGeneratorService {
     @Override
-    public String cheque(Order order, Car car) {
+    public String cheque(Order order) {
         StringBuilder sb = new StringBuilder();
         СalculatorPriceServiceImpl service = new СalculatorPriceServiceImpl();
-        IdGenerator id = new IdGenerator();
         LocalTime localTime = LocalTime.now();
 
         String numberOfOrders = String.valueOf(order.getQualityOrder());
         String clientNumber = String.valueOf(order.getClientNumber());
-        String orderId = String.valueOf(id.orderIdGenerator());
-        String name = String.valueOf(car.getName());
+        String orderId = String.valueOf(IdGenerator.orderIdGenerator());
+        String name = String.valueOf(order.getCar().getName());
 
 
         sb.append("\n" + "*".repeat(30) + "\n"
@@ -27,15 +26,15 @@ public class ChequeGeneratorServiceImpl implements ChequeGeneratorService {
                 + "Client: " + clientNumber + "\n"
                 + "Title: " + name + "\n"
                 + "-".repeat(30) + "\n");
-        sb.append(String.format("%-14s %14s %n", car.getTypeEquipment().getTitle(), car.getTypeEquipment().getPrice() + " $"));
-        for (Detail detail : car.getDetailsList()) {
+        sb.append(String.format("%-14s %14s %n", order.getCar().getTypeEquipment().getTitle(), order.getCar().getTypeEquipment().getPrice() + " $"));
+        for (Detail detail : order.getCar().getDetailsList()) {
             sb.append(String.format("%-20s %8s %n", detail.getTitle(), detail.getPrice() + " $"));
         }
         sb.append("-".repeat(30) + "\n");
-        sb.append(String.format("%-14s %14s %n", "Total: ", service.orderTotalPrice(order, car) + " $"));
+        sb.append(String.format("%-14s %14s %n", "Total: ", service.orderTotalPrice(order) + " $"));
         sb.append(String.format("%-14s %14s %n", "Quantity: ", numberOfOrders));
         sb.append(String.format("-".repeat(30) + "\n"));
-        sb.append(String.format("%-14s %14s %n", "Total amount: ", service.orderTotalAmount(order, car) + " $"));
+        sb.append(String.format("%-14s %14s %n", "Total amount: ", service.orderTotalAmount(order) + " $"));
         sb.append(String.format("%-14s %14s %n", "Order time: ", localTime.getHour() + ":" + localTime.getMinute()));
         sb.append("*".repeat(30));
 

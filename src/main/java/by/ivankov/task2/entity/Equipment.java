@@ -1,7 +1,7 @@
 package by.ivankov.task2.entity;
 
 public enum Equipment {
-    EXPANDED("Car Extended", 25000),
+    EXTENDED("Car Extended", 25000),
     STANDARD("Car Standard", 20000);
     private String title;
     private int price;

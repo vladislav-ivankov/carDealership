@@ -6,5 +6,5 @@ import by.ivankov.task2.entity.Order;
 import java.util.Calendar;
 
 public interface ChequeGeneratorService {
-    String cheque(Order order, Car car);
+    String cheque(Order order);
 }

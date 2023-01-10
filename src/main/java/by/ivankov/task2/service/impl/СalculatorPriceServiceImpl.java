@@ -8,16 +8,16 @@ import by.ivankov.task2.service.СalculatorPriceService;
 public class СalculatorPriceServiceImpl implements СalculatorPriceService {
 
     @Override
-    public int orderTotalPrice(Order order, Car car) {
+    public int orderTotalPrice(Order order) {
         int totalPrice = 0;
-        for (Detail detail : car.getDetailsList()) {
+        for (Detail detail : order.getCar().getDetailsList()) {
             totalPrice += detail.getPrice();
         }
-        return totalPrice + car.getTypeEquipment().getPrice();
+        return totalPrice + order.getCar().getTypeEquipment().getPrice();
     }
 
     @Override
-    public int orderTotalAmount(Order order, Car car) {
-        return orderTotalPrice(order, car) * order.getQualityOrder();
+    public int orderTotalAmount(Order order) {
+        return orderTotalPrice(order) * order.getQualityOrder();
     }
 }
