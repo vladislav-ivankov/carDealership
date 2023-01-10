@@ -45,15 +45,16 @@ public class Car {
     }
 
     public boolean addDetail(Detail detail) {
-        if (detailsList.size() > MAX_COMPONENTS) {
+        if (detailsList.size() >= MAX_COMPONENTS) {
             logger.log(Level.ERROR, "The car is already assembled. You will not be able to add new components");
+            return false;
         }
         if (detailsList.contains(detail)) {
             logger.log(Level.ERROR, "Detail already exists. Please check the order again.");
-        } else if (detailsList.size() < MAX_COMPONENTS && !detailsList.contains(detail)) {
+            return false;
+        }
             detailsList.add(detail);
             logger.log(Level.INFO, "The item was successfully added.");
-        }
-        return false;
+            return true;
     }
 }
