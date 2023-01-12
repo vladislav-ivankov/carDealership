@@ -45,16 +45,14 @@ public class Car {
     }
 
     public boolean addDetail(Detail detail) {
-        if (detailsList.size() >= MAX_COMPONENTS) {
-            logger.log(Level.ERROR, "The car is already assembled. You will not be able to add new components");
-            return false;
-        }
-        if (detailsList.contains(detail)) {
-            logger.log(Level.ERROR, "Detail already exists. Please check the order again.");
-            return false;
-        }
+        boolean mach = false;
+        if (detailsList.size() >= MAX_COMPONENTS || detailsList.contains(detail)) {
+            logger.log(Level.ERROR, "The machine is assembled or has the same parts. Check the order!");
+        }else {
             detailsList.add(detail);
             logger.log(Level.INFO, "The item was successfully added.");
-            return true;
+            mach = true;
+        }
+        return mach;
     }
 }

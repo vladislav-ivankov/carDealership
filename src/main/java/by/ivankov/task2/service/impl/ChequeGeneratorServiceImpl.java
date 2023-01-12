@@ -1,6 +1,5 @@
 package by.ivankov.task2.service.impl;
 
-import by.ivankov.task2.entity.Car;
 import by.ivankov.task2.service.ChequeGeneratorService;
 import by.ivankov.task2.entity.Detail;
 import by.ivankov.task2.entity.Order;
